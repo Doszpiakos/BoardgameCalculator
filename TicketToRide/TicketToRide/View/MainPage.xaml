@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:TicketToRide.ViewModel" 
+             xmlns:local="clr-namespace:TicketToRide.Model"
+             x:DataType="viewmodel:MainPageViewModel"
+             x:Class="TicketToRide.MainPage">
+    <NavigationPage.TitleView>
+        <Label Text="TicketToRide - powered by Doszpi" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Large" />
+    </NavigationPage.TitleView>
+    <StackLayout>
+        <ListView x:Name="listView" ItemsSource="{Binding SortedList}" Header="{Binding .}" HasUnevenRows="True" >
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="80" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Name" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="Route Points" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <Label Text="Ticket Points" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <Label Text="Station Points" Grid.Column="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <Label Text="Bonus Points" Grid.Column="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <Label Text="Sum" Grid.Column="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Player">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label BackgroundColor="{Binding Color}" Text="{Binding Name}" IsEnabled="{Binding Active}" IsVisible="{Binding Active}" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label BackgroundColor="{Binding Color}" Text="{Binding RoutePoints}" IsEnabled="{Binding Active}"  IsVisible="{Binding Active}" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label BackgroundColor="{Binding Color}" Text="{Binding TicketPoints}" IsEnabled="{Binding Active}"  IsVisible="{Binding Active}" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label BackgroundColor="{Binding Color}" Text="{Binding StationPoints}" IsEnabled="{Binding Active}"  IsVisible="{Binding Active}" Grid.Column="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label BackgroundColor="{Binding Color}" Text="{Binding BonusPoints}" IsEnabled="{Binding Active}"  IsVisible="{Binding Active}" Grid.Column="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label BackgroundColor="{Binding Color}" Text="{Binding Sum}" Grid.Column="5" IsVisible="{Binding Active}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CustomizePlayers" Command="{Binding AddPlayerCommand}" Text="Add Player" Grid.Row="0" Grid.Column="0" />
+            <Button x:Name="PlayerDetails" Command="{Binding BonusPointsCommand}" Text="Bonus Points" Grid.Row="0" Grid.Column="1" />
+            <Button x:Name="RoutePoints" Command="{Binding RoutePointsCommand}" Text="Route Points" Grid.Row="1" Grid.Column="0" />
+            <Button x:Name="TicketPoints" Command="{Binding TicketPointsCommand}" Text="Ticket Points" Grid.Row="1" Grid.Column="1" />
+        </Grid>
+        <Label />
+    </StackLayout>
+</ContentPage>

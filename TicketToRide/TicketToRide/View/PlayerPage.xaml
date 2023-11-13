@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodel="clr-namespace:TicketToRide.ViewModel"
+             x:DataType="viewmodel:PlayerPageViewModel"
+             x:Class="TicketToRide.View.PlayerPage">
+    <NavigationPage.TitleView>
+        <Label Text="Player Page" TextColor="White" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Large" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Entry BackgroundColor="LightGray" HorizontalTextAlignment="Center" x:Name="entry1" Text="{Binding Entry1}" Grid.Row="0" />
+            <CheckBox x:Name="check1" Grid.Row="0" Grid.Column="1" IsChecked="{Binding Check1}"/>
+            <Entry BackgroundColor="Tomato" HorizontalTextAlignment="Center" x:Name="entry2" Text="{Binding Entry2}" Grid.Row="1"/>
+            <CheckBox x:Name="check2" Grid.Row="1" Grid.Column="1" IsChecked="{Binding Check2}"/>
+            <Entry BackgroundColor="DeepPink" HorizontalTextAlignment="Center" x:Name="entry3" Text="{Binding Entry3}" Grid.Row="2"/>
+            <CheckBox x:Name="check3" Grid.Row="2" Grid.Column="1" IsChecked="{Binding Check3}"/>
+            <Entry BackgroundColor="Sienna" HorizontalTextAlignment="Center" x:Name="entry4" Text="{Binding Entry4}" Grid.Row="3"/>
+            <CheckBox x:Name="check4" Grid.Row="3" Grid.Column="1" IsChecked="{Binding Check4}"/>
+            <Entry BackgroundColor="DeepSkyBlue" HorizontalTextAlignment="Center" x:Name="entry5" Text="{Binding Entry5}" Grid.Row="4"/>
+            <CheckBox x:Name="check5" Grid.Row="4" Grid.Column="1" IsChecked="{Binding Check5}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

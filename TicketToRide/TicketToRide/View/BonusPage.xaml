@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:TicketToRide.ViewModel" 
+             x:DataType="viewmodel:BonusPageViewModel"
+             x:Class="TicketToRide.View.BonusPage">
+    <NavigationPage.TitleView>
+        <Label Text="Bonus Page" TextColor="White" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Large" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Label BackgroundColor="{Binding Color}" FontSize="Large" Text="Player Name" Grid.Row="0"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Grid.ColumnSpan="3"/>
+            <Label BackgroundColor="{Binding Color}" FontSize="Large" Text="{Binding Name}" Grid.Row="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.ColumnSpan="3"/>
+            <Label Text="Station Points" Grid.Row="2" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Grid.ColumnSpan="3"/>
+            <Button Text="-" Command="{Binding RemoveStationCommand}" Grid.Row="3" Grid.Column="0" />
+            <Label Text="{Binding StationPoints}" FontSize="Large" Grid.Row="3" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" />
+            <Button Text="+" Command="{Binding AddStationCommand}"  Grid.Row="3" Grid.Column="2" />
+            <Label Text="Bonus Points" FontSize="Large" Grid.Row="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Grid.ColumnSpan="2"/>
+            <Label Text="{Binding BonusPoints}" FontSize="Large" Grid.Row="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Label Text="Longest Route" FontSize="Large" Grid.Row="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Grid.ColumnSpan="2" />
+            <CheckBox IsChecked="{Binding CheckBox}" Grid.Row="4" Grid.Column="2" />
+            <Button x:Name="NextPlayerButton" FontSize="Large" Text="Next Player" Command="{Binding NextPlayerCommand}" Grid.Row="7" Grid.ColumnSpan="3"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:TicketToRide.ViewModel" 
+             xmlns:local="clr-namespace:TicketToRide.Model"
+             x:DataType="viewmodel:TicketPageViewModel"
+             x:Class="TicketToRide.View.TicketPage">
+    <NavigationPage.TitleView>
+        <Label Text="Ticket Page" TextColor="White" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Large"/>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="0" Padding="0" ColumnSpacing="0" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="0.3*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="0.8*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label Margin="0" Padding="0" BackgroundColor="{Binding Color}" FontSize="Large" Text="Player: " Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Margin="0" Padding="0" BackgroundColor="{Binding Color}" FontSize="Large" Text="{Binding Name}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Margin="0" Padding="0" BackgroundColor="{Binding Color}" FontSize="Large" Text="Points: " Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Margin="0" Padding="0" BackgroundColor="{Binding Color}" FontSize="Large" Text="{Binding TicketPoints}" Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button Text="Delete List" Grid.Column="0" Grid.Row="2" Command="{Binding DeleteMinusListCommand}" />
+                <Button Text="Delete List" Grid.Column="1" Grid.Row="2" Command="{Binding DeletePlusListCommand}" />
+            <ListView x:Name="failedListView" ItemsSource="{Binding FailedTicketList}" Grid.Column="0" Grid.Row="3">
+                <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="x:Int32">
+                        <ViewCell>
+                            <ViewCell.View>
+                                    <Grid>
+                                        <Label TextColor="Red" Text="{Binding .}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                <ListView x:Name="successfulListView" ItemsSource="{Binding SuccessfulTicketList}" Grid.Column="1" Grid.Row="3">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="x:Int32">
+                        <ViewCell>
+                            <ViewCell.View>
+                                    <Grid>
+                                        <Label TextColor="Green" Text="{Binding .}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid Grid.Row="4" Grid.ColumnSpan="2">
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                    <Button Command="{Binding AddMinusCommand}" Grid.Column="0" Grid.Row="0" Text="-" FontSize="Large" />
+                    <Entry x:Name="Entry" Grid.Column="1" Grid.Row="0" Keyboard="Numeric" Text="{Binding EntryText}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <Button Command="{Binding AddPlusCommand}" Grid.Column="2" Grid.Row="0" Text="+" FontSize="Large" />
+                    <Button Command="{Binding NextPlayerCommand}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" Text="Next Player" FontSize="Large" />
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

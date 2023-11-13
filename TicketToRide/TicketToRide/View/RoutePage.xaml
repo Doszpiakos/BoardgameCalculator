@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodel="clr-namespace:TicketToRide.ViewModel"
+             x:DataType="viewmodel:RoutePageViewModel"
+             x:Class="TicketToRide.View.RoutePage">
+    <NavigationPage.TitleView>
+        <Label Text="Route Page" TextColor="White" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" FontSize="Large" />
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid Padding="0" Margin="0" ColumnSpacing="0" RowSpacing="0"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label BackgroundColor="{Binding Color}" Text="Player: " Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            <Label BackgroundColor="{Binding Color}" Text="{Binding Name}" Grid.Column="2" Grid.ColumnSpan="2" FontSize="Large" FontFamily="Bold"  HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label BackgroundColor="{Binding Color}" Text="Points: " Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label BackgroundColor="{Binding Color}" Text="{Binding RoutePoints}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label BackgroundColor="{Binding Color}" Text="Unused Trains:" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label BackgroundColor="{Binding Color}" Text="Used Trains:" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label BackgroundColor="{Binding Color}" Text="{Binding UnUsedTrains}" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Label BackgroundColor="{Binding Color}" Text="{Binding UsedTrains}" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" FontSize="Large" FontFamily="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+            <Label Text="One car" Grid.Column="0" Grid.Row="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="One_car_minus" Text="-" Grid.Column="1" Grid.Row="4" Command="{Binding OneCarMinusCommand}"/>
+            <Label x:Name="One_car" Text="{Binding OneCar}" Grid.Column="2" Grid.Row="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="One_car_plus" Text="+" Grid.Column="3" Grid.Row="4" Command="{Binding OneCarPlusCommand}"/>
+
+            <Label Text="Two car" Grid.Column="0" Grid.Row="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Two_car_minus" Text="-" Grid.Column="1" Grid.Row="5" Command="{Binding TwoCarMinusCommand}"/>
+            <Label x:Name="Two_car" Text="{Binding TwoCar}" Grid.Column="2" Grid.Row="5" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Two_car_plus" Text="+" Grid.Column="3" Grid.Row="5" Command="{Binding TwoCarPlusCommand}"/>
+
+            <Label Text="Three car" Grid.Column="0" Grid.Row="6" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Three_car_minus" Text="-" Grid.Column="1" Grid.Row="6" Command="{Binding ThreeCarMinusCommand}"/>
+            <Label x:Name="Three_car" Text="{Binding ThreeCar}" Grid.Column="2" Grid.Row="6" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Three_car_plus" Text="+" Grid.Column="3" Grid.Row="6" Command="{Binding ThreeCarPlusCommand}"/>
+
+            <Label Text="Four car" Grid.Column="0" Grid.Row="7" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Four_car_minus" Text="-" Grid.Column="1" Grid.Row="7" Command="{Binding FourCarMinusCommand}"/>
+            <Label x:Name="Four_car" Text="{Binding FourCar}" Grid.Column="2" Grid.Row="7" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Four_car_plus" Text="+" Grid.Column="3" Grid.Row="7" Command="{Binding FourCarPlusCommand}"/>
+
+            <Label Text="Six car" Grid.Column="0" Grid.Row="8" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Six_car_minus" Text="-" Grid.Column="1" Grid.Row="8" Command="{Binding SixCarMinusCommand}"/>
+            <Label x:Name="Six_car" Text="{Binding SixCar}" Grid.Column="2" Grid.Row="8" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Six_car_plus" Text="+" Grid.Column="3" Grid.Row="8" Command="{Binding SixCarPlusCommand}"/>
+
+            <Label Text="Eight car" Grid.Column="0" Grid.Row="9" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Eight_car_minus" Text="-" Grid.Column="1" Grid.Row="9" Command="{Binding EightCarMinusCommand}"/>
+            <Label x:Name="Eight_car" Text="{Binding EightCar}" Grid.Column="2" Grid.Row="9" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="Eight_car_plus" Text="+" Grid.Column="3" Grid.Row="9" Command="{Binding EightCarPlusCommand}"/>
+
+            <Button Text="Next Player" Command="{Binding NextPlayerCommand}" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="4" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
